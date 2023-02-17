@@ -10,8 +10,8 @@ install_nvim () {
 	chmod u+x nvim.appimage
 	
 	echo "Installing latest nvim version"
-	./nvim.appimage || {
-
+	./nvim.appimage > /dev/null 2>&1 || {
+	
 	./nvim.appimage --appimage-extract
 	./squashfs-root/AppRun --version
 	} > /dev/null 2>&1
@@ -28,11 +28,11 @@ install_conf_file () {
 	}
 
 	echo "Cloning `nvim-like-vscode` config file"
-	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode
+	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode > /dev/null 2>&1
 	git clone https://github.com/josethz00/neovim-like-vscode.git ~/.config/nvim/nvim-like-vscode
 
 	echo "Copying `nvim-like-vscode` config file"
-	cp ~/.config/nvim/nvim-config/init.vim ~/.config/nvim/
+	cp ~/.config/nvim/nvim-like-vscode/init.vim ~/.config/nvim/
 
 	echo "Removing unnecessary files"
 	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode
