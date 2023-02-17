@@ -14,31 +14,32 @@ install_nvim () {
 
 	./nvim.appimage --appimage-extract
 	./squashfs-root/AppRun --version
-	}
+	} > /dev/null 2>&1
 	
 	echo "Removing instalation file"
-	[[ -f nvim.appimage ]] && rm -rf nvim.appimage
+	[ -f nvim.appimage ] && rm -rf nvim.appimage
 }
 
 install_conf_file () {
-	[[ ! -d ~/.config/nvim ]] || { 
+	[ ! -d ~/.config/nvim ] || { 
 	
 	echo "Creating .config/nvim directory"
 	mkdir -p ~/.config/nvim
 	}
 
 	echo "Cloning `nvim-like-vscode` config file"
+	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode
 	git clone https://github.com/josethz00/neovim-like-vscode.git ~/.config/nvim/nvim-like-vscode
 
 	echo "Copying `nvim-like-vscode` config file"
 	cp ~/.config/nvim/nvim-config/init.vim ~/.config/nvim/
 
 	echo "Removing unnecessary files"
-	[[ -d ~/.config/nvim/nvim-like-vscode ]] && rm -rf ~/.config/nvim/nvim-like-vscode
+	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode
 }
 
 install_nerd_fonts () {
-	[[ ! -d ~/.local/share/fonts ]] || {
+	[ ! -d ~/.local/share/fonts ] || {
 	
 	echo "Creating fonts directory"
 	mkdir -p ~/.local/share/fonts 
