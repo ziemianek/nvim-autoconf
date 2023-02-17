@@ -8,16 +8,9 @@ install_nvim () {
 	echo "Downloading latest nvim version"
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod u+x nvim.appimage
-	
-	echo "Installing latest nvim version"
-	./nvim.appimage > /dev/null 2>&1 || {
-	
-	./nvim.appimage --appimage-extract
-	./squashfs-root/AppRun --version
-	} > /dev/null 2>&1
-	
-	echo "Moving instalation file"
-	mv nvim.appimage /usr/bin/nvim
+
+	echo "Please provide user password to move instalation file"
+	sudo mv nvim.appimage /usr/bin/nvim
 }
 
 install_conf_file () {
