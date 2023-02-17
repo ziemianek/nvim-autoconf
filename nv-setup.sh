@@ -71,5 +71,3 @@ install_vim_plug
 echo "Now open init.vim by running the command below:\n"
 echo "nvim ~/.config/nvim/init.vim\n"
 echo "Then type :PlugInstall to install all necessary plugins\n"
-
-
