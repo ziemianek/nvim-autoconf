@@ -16,8 +16,8 @@ install_nvim () {
 	./squashfs-root/AppRun --version
 	} > /dev/null 2>&1
 	
-	echo "Removing instalation file"
-	[ -f nvim.appimage ] && rm -rf nvim.appimage
+	echo "Moving instalation file"
+	mv nvim.appimage /usr/bin/nvim
 }
 
 install_conf_file () {
