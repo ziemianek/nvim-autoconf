@@ -55,6 +55,8 @@ install_nerd_fonts
 # Download and install vim plug plugin manager
 install_vim_plug
 
+echo "==========================================================\n"
 echo "Now open init.vim by running the command below:\n"
 echo "nvim ~/.config/nvim/init.vim\n"
 echo "Then type :PlugInstall to install all necessary plugins\n"
+echo "==========================================================\n"
