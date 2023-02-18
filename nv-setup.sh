@@ -9,8 +9,8 @@ install_nvim () {
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod u+x nvim.appimage
 
-	echo "Please provide user password to move instalation file"
-	sudo mv nvim.appimage /usr/bin/nvim
+	echo "Copying nvim installation file to /usr/bin/nvim"
+	cp nvim.appimage /usr/bin/nvim
 }
 
 install_conf_file () {
@@ -20,15 +20,8 @@ install_conf_file () {
 	mkdir -p ~/.config/nvim
 	}
 
-	echo "Cloning `nvim-like-vscode` config file"
-	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode > /dev/null 2>&1
-	git clone https://github.com/josethz00/neovim-like-vscode.git ~/.config/nvim/nvim-like-vscode
-
-	echo "Copying `nvim-like-vscode` config file"
-	cp ~/.config/nvim/nvim-like-vscode/init.vim ~/.config/nvim/
-
-	echo "Removing unnecessary files"
-	[ -d ~/.config/nvim/nvim-like-vscode ] && rm -rf ~/.config/nvim/nvim-like-vscode
+	echo "Copying config file to ~/.config/nvim"
+	cp init.vim ~/.config/nvim
 }
 
 install_nerd_fonts () {
