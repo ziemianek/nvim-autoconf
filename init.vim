@@ -1,26 +1,32 @@
+:set number
+:set relativenumber
+:set hidden
+:set smarttab
+:set mouse=a
+:set cursorline
+:set expandtab
+:set autoindent
+:set smartindent
+:set shiftwidth=4
+:set tabstop=4
+:set encoding=utf8
+:set history=5000
+
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
-Plug 'mattn/emmet-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }"
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'sheerun/vim-polyglot'
-Plug 'morhetz/gruvbox'
-Plug 'rafi/awesome-vim-colorschemes'  
-Plug 'vim-airline/vim-airline'
-Plug 'Yggdroot/indentLine' 
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-Plug 'tomasiser/vim-code-dark'
+Plug 'http://github.com/tpope/vim-surround' " Surrounding ysw)
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'https://github.com/tpope/vim-commentary' " For Commenting gcc & gc
+Plug 'https://github.com/vim-airline/vim-airline' " Status bar
+Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
+Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
+Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
+Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 
 " Initialize plugin system
 call plug#end()
@@ -29,19 +35,6 @@ inoremap jk <ESC>
 nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
-
-set mouse=a
-set number
-set hidden
-set cursorline
-set expandtab
-set autoindent
-set smartindent
-set shiftwidth=4
-set tabstop=4
-set encoding=utf8
-set history=5000
-set clipboard=unnamedplus
 
 	" open NERDTree automatically
 autocmd StdinReadPre * let s:std_in=1
