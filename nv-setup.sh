@@ -58,9 +58,10 @@ install_vim_plug
 ./nvim.appimage --appimage-extract
 ./squashfs-root/AppRun --version
 
-Exposing nvim globally.
+# Exposing nvim globally.
 mv squashfs-root /
 [ -f /usr/bin/nvim ] && rm -rf /usr/bin/nvim
+[ -d /squashfs-root ] && rm -rf /squashfs-root
 ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 echo "==========================================================\n"
