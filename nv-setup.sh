@@ -60,6 +60,7 @@ install_vim_plug
 
 Exposing nvim globally.
 mv squashfs-root /
+[ -f /usr/bin/nvim ] && rm -rf /usr/bin/nvim
 ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 echo "==========================================================\n"
