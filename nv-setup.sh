@@ -9,8 +9,8 @@ install_nvim () {
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod u+x nvim.appimage
 
-	echo "Copying nvim installation file to /usr/bin/nvim"
-	cp nvim.appimage /usr/bin/nvim
+	#echo "Copying nvim installation file to /usr/bin/nvim"
+	#cp nvim.appimage /usr/bin/nvim
 }
 
 install_conf_file () {
@@ -54,6 +54,13 @@ install_nerd_fonts
 
 # Download and install vim plug plugin manager
 install_vim_plug
+
+./nvim.appimage --appimage-extract
+./squashfs-root/AppRun --version
+
+Exposing nvim globally.
+mv squashfs-root /
+ln -s /squashfs-root/AppRun /usr/bin/nvim
 
 echo "==========================================================\n"
 echo "Now open init.vim by running the command below:\n"
