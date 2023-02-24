@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x -e
+
 # ========================================================== #
 # Script for automated neovim installation and configuration #
 # ========================================================== #
@@ -8,9 +8,6 @@ install_nvim () {
 	echo "Downloading latest nvim version"
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod u+x nvim.appimage
-
-	#echo "Copying nvim installation file to /usr/bin/nvim"
-	#cp nvim.appimage /usr/bin/nvim
 }
 
 install_conf_file () {
@@ -21,7 +18,6 @@ install_conf_file () {
 	}
 
 	echo "Copying config file to ~/.config/nvim"
-	#USERNAME=`whoami`
 	sudo cp init.vim ~/.config/nvim/
 }
 

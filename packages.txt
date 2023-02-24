@@ -1,3 +1,4 @@
 curl
-libfuse.so.2
+libfuse2
+exuberant-ctags
 nodejs
