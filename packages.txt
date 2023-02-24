@@ -1,0 +1,3 @@
+curl
+libfuse.so.2
+nodejs

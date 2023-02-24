@@ -1,5 +1,5 @@
 #!/bin/sh
-
+set -x -e
 # ========================================================== #
 # Script for automated neovim installation and configuration #
 # ========================================================== #
@@ -14,18 +14,19 @@ install_nvim () {
 }
 
 install_conf_file () {
-	[ ! -d ~/.config/nvim ] || { 
+	[ ! -d ~/.config/nvim ] && { 
 	
 	echo "Creating .config/nvim directory"
 	mkdir -p ~/.config/nvim
 	}
 
 	echo "Copying config file to ~/.config/nvim"
-	cp init.vim ~/.config/nvim
+	#USERNAME=`whoami`
+	sudo cp init.vim ~/.config/nvim/
 }
 
 install_nerd_fonts () {
-	[ ! -d ~/.local/share/fonts ] || {
+	[ ! -d ~/.local/share/fonts ] && {
 	
 	echo "Creating fonts directory"
 	mkdir -p ~/.local/share/fonts 
@@ -55,17 +56,17 @@ install_nerd_fonts
 # Download and install vim plug plugin manager
 install_vim_plug
 
-./nvim.appimage --appimage-extract
+./nvim.appimage --appimage-extract >> /dev/null 2>&1
 ./squashfs-root/AppRun --version
 
 # Exposing nvim globally.
-mv squashfs-root /
-[ -f /usr/bin/nvim ] && rm -rf /usr/bin/nvim
-[ -d /squashfs-root ] && rm -rf /squashfs-root
-ln -s /squashfs-root/AppRun /usr/bin/nvim
+[ -d /squashfs-root ] && sudo rm -rf /squashfs-root
+[ -d /usr/bin/nvim ] && sudo rm -rf /usr/bin/nvim
+sudo mv squashfs-root /
+sudo ln -s -f /squashfs-root/AppRun /usr/bin/nvim
 
-echo "==========================================================\n"
-echo "Now open init.vim by running the command below:\n"
-echo "nvim ~/.config/nvim/init.vim\n"
-echo "Then type :PlugInstall to install all necessary plugins\n"
-echo "==========================================================\n"
+echo "=========================================================="
+echo "Now open init.vim by running the command below:"
+echo "nvim ~/.config/nvim/init.vim"
+echo "Then type :PlugInstall to install all necessary plugins"
+echo "=========================================================="
