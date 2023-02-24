@@ -1,13 +1,8 @@
 # nvim-autoconf
 Script for automatic neovim installation and configuration.
 
-## Info
-There are still some errors to be fixed with nvim plugins.
-Ignore them for now.
-
-## Installation tutorial
-* install `curl` with your package manager: ex. sudo apt install curl
-* install `libfuse2` with your package manager: ex. sudo apt install libfuse2
-* clone the repo: git clone https://github.com/ziemianek/nvim-autoconf.git ~/
-* paste in your terminal: ( cd ~/nvim-autoconf ; chmod 755 nv-setup.sh ; ./nv-setup.sh )
-* run nvim command in your terminal to see if nvim works
+# Installation guide
+* clone the repo: `git clone https://github.com/ziemianek/nvim-autoconf.git ~/`
+* install required packages: `xargs sudo apt-get install <packages.txt`
+* paste in your terminal: `( cd ~/nvim-autoconf ; chmod 755 nv-setup.sh ; ./nv-setup.sh )`
+* from then follow instructions displayed in your terminal
