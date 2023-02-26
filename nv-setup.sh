@@ -8,6 +8,14 @@ install_nvim () {
 	echo "Downloading latest nvim version"
 	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 	chmod u+x nvim.appimage
+	./nvim.appimage --appimage-extract >> /dev/null 2>&1
+	./squashfs-root/AppRun --version
+
+	# Exposing nvim globally.
+	[ -d /squashfs-root ] && sudo rm -rf /squashfs-root
+	[ -d /usr/bin/nvim ] && sudo rm -rf /usr/bin/nvim
+	sudo mv squashfs-root /
+	sudo ln -s -f /squashfs-root/AppRun /usr/bin/nvim
 }
 
 install_conf_file () {
@@ -51,15 +59,6 @@ install_nerd_fonts
 
 # Download and install vim plug plugin manager
 install_vim_plug
-
-./nvim.appimage --appimage-extract >> /dev/null 2>&1
-./squashfs-root/AppRun --version
-
-# Exposing nvim globally.
-[ -d /squashfs-root ] && sudo rm -rf /squashfs-root
-[ -d /usr/bin/nvim ] && sudo rm -rf /usr/bin/nvim
-sudo mv squashfs-root /
-sudo ln -s -f /squashfs-root/AppRun /usr/bin/nvim
 
 echo "=========================================================="
 echo "Now open init.vim by running the command below:"
